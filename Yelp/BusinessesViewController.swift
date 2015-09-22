@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate, UISearchBarDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FiltersViewControllerDelegate, UISearchBarDelegate, FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -38,6 +38,38 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
              self.tableView.reloadData()
         })
         self.navigationController?.navigationBarHidden = true
+        
+        let login = FBSDKLoginButton()
+        login.center = self.view.center
+        
+        self.view.addSubview(login)
+
+        login.delegate = self
+        
+        let share = UIButton(frame: CGRectMake(0, 0, 100, 100))
+        share.center.x = 100
+        share.center.y = 100
+        self.view.addSubview(share)
+        share.backgroundColor = UIColor.blueColor()
+        share.addTarget(self, action: "share", forControlEvents: UIControlEvents.TouchUpInside)
+        
+    }
+    
+    func share(){
+        let shareContent = FBSDKShareLinkContent()
+        shareContent.contentURL = NSURL(string: "http://google.com")
+        
+        shareContent.contentTitle = "title"
+        
+        FBSDKShareDialog.showFromViewController(self, withContent: shareContent, delegate: nil)
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        print(result)
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

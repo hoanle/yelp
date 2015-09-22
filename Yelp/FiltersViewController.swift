@@ -28,7 +28,7 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
     var numDistanceToShow: Int?
     var sections:[String]!
     
-     var distanceButton: UIButton = UIButton()
+    var distanceButton: UIButton = UIButton()
     var countryButton: UIButton = UIButton ()
     
     override func viewDidLoad() {
