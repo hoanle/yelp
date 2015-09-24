@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        Parse.setApplicationId("tQYHqy35emsiGewPFc74n2ydY83c2G4jGO6Bdwqs",
+            clientKey: "rabuOebPyCSKCwA9ZsHbje6Zws8HvjyGax1k4Yay")
         return true
     }
 

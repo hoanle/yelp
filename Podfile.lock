@@ -42,6 +42,8 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.6.0):
     - FBSDKCoreKit
+  - Parse (1.8.5):
+    - Bolts/Tasks (>= 1.2.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -49,6 +51,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
@@ -57,5 +60,6 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 9954492d90c5fd65ae831395697a1660360d61f1
   FBSDKLoginKit: 3d07febbfa884b9878cacba54f705bb41f07d4b6
   FBSDKShareKit: f474f1123791e215d0299b98b3ee92ddd9187d86
+  Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
 
 COCOAPODS: 0.38.2

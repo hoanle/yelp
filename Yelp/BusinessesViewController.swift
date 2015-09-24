@@ -41,6 +41,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         
         let login = FBSDKLoginButton()
         login.center = self.view.center
+        login.readPermissions = ["public_profile", "email", "user_friends"]
         
         self.view.addSubview(login)
 
@@ -66,6 +67,24 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print(result)
+      /*
+        let me = FBSDKGraphRequest(graphPath: "me", parameters: ["fields" : "name, email"])
+        me.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+            
+            print(result)
+            
+        }
+        */
+        
+        let test = FBSDKGraphRequest(graphPath: "me/taggable_friends", parameters: nil, HTTPMethod: "GET")
+        
+        test.startWithCompletionHandler { (connection: FBSDKGraphRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+            print(result)
+            //Get friend list okie
+            
+        }
+
+        
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {

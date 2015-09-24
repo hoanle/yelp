@@ -58,6 +58,22 @@ class FiltersViewController: UIViewController, UITableViewDataSource, UITableVie
         countryButton.addTarget(self, action: "checkNumberCountryShow:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.tableView.reloadData()
+        
+        testParse()
+    }
+    
+    func testParse(){
+        let testObject = PFObject(className: "TestObject")
+        testObject.setObject("Tung", forKey: "name")
+        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            println("Object has been saved.")
+            
+            var query = PFQuery(className: "TestObject")
+            query.whereKey("name", equalTo:"Tung")
+            query.findObjectsInBackgroundWithBlock({ (object: [AnyObject]?, errors: NSError?) -> Void in
+                
+            })
+        }
     }
 
     func checkNumberCountryShow(sender: UIButton) {
